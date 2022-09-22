@@ -1,0 +1,51 @@
+{
+  "name": "playwright-merge-html-reports",
+  "version": "0.2.5",
+  "description": "Merge Playwright HTML reports",
+  "homepage": "https://github.com/Rippling/playwright-merge-html-reports#readme",
+  "bugs": {
+    "url": "https://github.com/Rippling/playwright-merge-html-reports/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rippling/playwright-merge-html-reports.git"
+  },
+  "main": "dist/merge-reports.js",
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "test": "ts-node --project=tsconfig.test.json ./src/merge-reports.spec.ts",
+    "clean": "rm -rf dist/",
+    "test:js": "node ./src/merge-reports.spec.js",
+    "compile": "tsc",
+    "watch": "tsc -w",
+    "build": "npm run clean && npm run compile",
+    "show-merged-report": "playwright show-report merged-html-report"
+  },
+  "keywords": [
+    "playwright-merge-html-reports",
+    "playwright html reports"
+  ],
+  "author": "Anoop Raveendran",
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "@playwright/test": ">= 1.18.1"
+  },
+  "dependencies": {
+    "jszip": "^3.7.1",
+    "yazl": "^2.5.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.21.1",
+    "@tsconfig/node14": "^1.0.1",
+    "@types/node": "^17.0.18",
+    "@types/yazl": "^2.4.2",
+    "ts-node": "^10.5.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.5"
+  },
+  "files": [
+    "dist"
+  ]
+}
