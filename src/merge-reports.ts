@@ -15,7 +15,7 @@
  */
 
 import { createWriteStream, existsSync } from "fs";
-import { mkdir, readFile, readdir, copyFile, appendFile, writeFile, rm } from "fs/promises";
+import { mkdir, readFile, readdir, copyFile, appendFile, writeFile, rm, stat } from "fs/promises";
 import path from "path";
 import JSZip from "jszip";
 import yazl from "yazl";
@@ -219,6 +219,12 @@ async function copyDir(srcDirPath: string, srcDirOutputPath: string, debug: bool
               destPath
             });
           }
+          
+          const fileStats = await stat(srcPath);
+          if(fileStats.isDirectory()){
+            return copyDir(srcPath, destPath, debug);
+          }
+
           await copyFile(srcPath, destPath);
           if (debug) {
             console.log(fileName);
