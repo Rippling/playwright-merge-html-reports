@@ -1,6 +1,6 @@
 {
   "name": "playwright-merge-html-reports",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Merge Playwright HTML reports",
   "homepage": "https://github.com/Rippling/playwright-merge-html-reports#readme",
   "bugs": {
