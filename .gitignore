@@ -1,3 +1,4 @@
 node_modules/
 merged-html-report/
 dist/
+src/version.ts

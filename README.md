@@ -46,6 +46,17 @@ mergeHTMLReports(inputReportPaths, config)
 - TS support
 - Uses `jszip` and `yazl` for encoding and decoding zipped content from the `index.html` file.
 
-## Upcoming features
+### Using the CLI
 
-- Usage directly on Command line
+You can use the CLI by running the following command:
+
+```bash
+npx playwright-merge-html-reports <inputReportPath1> <inputReportPath2> [...inputReportPaths]
+
+#### CLI Options
+```bash
+-o, --output <outputFolderName>: Output folder name (default: 'merged-html-report')
+-b, --basePath <outputBasePath>: Output base path (default: current working directory)
+--overwrite: Overwrite existing reports (default: false)
+--debug: Print debug information (default: false)
+```

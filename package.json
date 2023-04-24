@@ -24,6 +24,7 @@
     "test:js": "node ./src/merge-reports.spec.js",
     "compile": "tsc",
     "watch": "tsc -w",
+    "prebuild": "node -p \"'export const LIB_VERSION = ' + JSON.stringify(require('./package.json').version) + ';'\" > src/version.ts",
     "build": "npm run clean && npm run compile",
     "postbuild": "chmod +x dist/cli.js",
     "show-merged-report": "playwright show-report merged-html-report"

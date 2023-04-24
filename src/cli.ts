@@ -3,11 +3,12 @@
 import { mergeHTMLReports } from "./merge-reports";
 import { Config } from "./types";
 import { Command } from "commander";
+import { LIB_VERSION } from './version';
 
 const program = new Command();
 
 program
-  .version('1.0.0')
+  .version(LIB_VERSION)
   .description('CLI wrapper for merging HTML reports')
   .option('-o, --output <outputFolderName>', 'Output folder name', 'merged-html-report')
   .option('-b, --basePath <outputBasePath>', 'Output base path', process.cwd())
