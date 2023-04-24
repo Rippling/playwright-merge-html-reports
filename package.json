@@ -11,16 +11,21 @@
     "url": "git+https://github.com/Rippling/playwright-merge-html-reports.git"
   },
   "main": "dist/merge-reports.js",
+  "bin": {
+    "merge-html-reports": "./dist/cli.js"
+  },
   "engines": {
     "node": ">=12"
   },
   "scripts": {
     "test": "ts-node --project=tsconfig.test.json ./src/merge-reports.spec.ts",
+    "test:cli": "npm run build && npm link && jest",
     "clean": "rm -rf dist/",
     "test:js": "node ./src/merge-reports.spec.js",
     "compile": "tsc",
     "watch": "tsc -w",
     "build": "npm run clean && npm run compile",
+    "postbuild": "chmod +x dist/cli.js",
     "show-merged-report": "playwright show-report merged-html-report"
   },
   "keywords": [
@@ -33,14 +38,18 @@
     "@playwright/test": ">= 1.18.1"
   },
   "dependencies": {
+    "commander": "^10.0.1",
     "jszip": "^3.7.1",
     "yazl": "^2.5.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.21.1",
     "@tsconfig/node14": "^1.0.1",
+    "@types/jest": "^29.5.1",
     "@types/node": "^17.0.18",
     "@types/yazl": "^2.4.2",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
     "ts-node": "^10.5.0",
     "tslib": "^2.3.1",
     "typescript": "^4.5.5"
